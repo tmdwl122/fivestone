@@ -1,0 +1,305 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+ul{list-style: none;}
+a {text-decoration: none; color: inherit;}
+img { max-width:100%; vertical-align:middle }
+.inner{ max-width:1240px; margin: 0 auto;}
+.cf::after {content: ""; display: block; clear: both;}
+table {width:100%; border-collapse: collapse; table-layout: fixed;} /* table은 항상 width 100% */
+/* @font-face {
+    font-family: 'AppleSDGothicNeoH00';
+    src: local('AppleSDGothicNeoH00'),
+    url('../font/AppleSDGothicNeoH00.woff') format('woff'),
+    url('../font/AppleSDGothicNeoH00.woff2') format('woff2'),
+    url('../font/AppleSDGothicNeoH00.eot') format('eot')
+} */
+
+body {font-family: 
+    /* 'AppleSDGothicNeoH00'; */
+    'Noto Sans KR', sans-serif;
+}
+
+#header {
+    position: relative;
+    padding: 27px 0;
+}
+#header .inner { position:relative }
+#header .membership {
+    position: absolute;
+    top:0; right:0; 
+    color: #777777;
+    font-size: 12px; 
+}
+#header .membership a {
+    padding: 0 15px;
+    line-height: 43.2px;
+}
+
+#header .membership a:first-child {position: relative;}
+#header .membership a:first-child::after {
+    content: '';
+    width: 1px; height: 10px; background-color: #000;
+    position: absolute; top: 4px; right: -3px;
+}
+#header .membership a:last-child {
+    padding-right: 0;
+}
+
+
+/* 1단계 메뉴 */
+#header #nav {
+    position: absolute; /* absolute를 적용하면 부모 header의 패딩값이 사라짐 */
+    top: 33px;
+    left:50%;
+    margin-left: -341.25px; /* 넓이절반 빼기 */
+}
+
+#header #nav .depth1 > li {
+    /* display: inline-block; 양옆에 빈틈이 생기기 때문에 float 사용 */
+    float: left;
+    padding: 0 30px 27px;
+    position: relative;
+    font-size: 18px;
+    line-height: 43.2px;
+    color: #333;
+    font-weight: 500;
+}
+#header #nav .depth1 > li:hover {
+    color: #002a62;
+}
+
+#header #nav .depth1 > li::after {
+    content: '';
+    width: 100%; height: 2px; background-color: none;
+    position: absolute; bottom: 0; left: 0;
+    transition: all 0.5s;
+}
+#header #nav .depth1 > li:hover::after {
+    background-color: #002162;
+}
+
+
+/* 2단계 메뉴 */
+#nav .depth2 {
+    position:absolute;
+    top:100%; 
+    left:0; 
+    width:100%; 
+    height: 0px; overflow: hidden; opacity: 0;
+    /* display:none; 트랜지션이 안먹힘*/
+    z-index:99;
+    font-size:15px; 
+    color:#777;
+    padding: 28px 0;
+    text-align: center;
+    border-top: 1px solid#777;
+    transition: all 0.5s;
+}
+
+#nav .depth1:hover > li > .depth2 {
+    /* display:block;  */
+    height: 180px; opacity: 1;
+}
+
+#nav .depth2 > li {
+    line-height:2em;
+}
+
+#nav .depth2 > li:hover > a {
+    text-decoration:underline;
+    color:#002a62;
+}
+
+#header .bgbox {
+    position: absolute;
+    top:100%; left:0;
+    width: 100%; height: 0px; opacity: 0;
+    background: #fff;
+    border-top: 1px solid#777;
+    z-index: 98;
+    /* display: none; */
+    transition: all 0.5s;
+}
+
+#header #nav:hover + .bgbox {
+    /* display: block; */
+    height: 180px; opacity: 1;
+}
+
+/* 슬라이드 */
+#main .slideOuter {
+    height: 506.4px;
+    overflow: hidden;
+}
+#main .slideOuter .slide {position: relative;}
+#main .slideOuter .text {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    left:200px;
+}
+#main .slideOuter .text h2 {
+    font-size: 65px; color: #fff;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8);
+    line-height: 1.2em; text-align: left;
+}
+#main .slideOuter .text h2 span {
+    color: #000;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.8);
+    display: block;
+}
+#main .slideOuter .text p {
+    font-size: 16px; color: #999;
+    margin-top: 30px;
+}
+#main .slideOuter .text p span {display: block;}
+
+/* 서비스 메뉴 */
+#main .service { padding: 35px 0;}
+#main h2 {font-size: 34px; color: #333; text-align: center;}
+#main .desp {
+    font-size: 15px; color: #777; 
+    text-align: center;
+    padding: 10px 0 20px;
+}
+#main .service ul,
+#main .product ul {overflow: hidden;}
+#main .service ul li,
+#main .product ul li {float: left; width:32.333%}
+#main .product ul li {background-color: #fff;}
+#main .service ul li:nth-child(2),
+#main .product ul li:nth-child(2) {margin: 0 1.5%;}
+
+#main .imgbox { overflow: hidden; background-color: #000;}
+#main .imgbox img {transition: all 0.5s;}
+#main .imgbox:hover img { 
+    transform: scale(1.2); opacity:0.7;
+}
+
+#main .service ul h3 {
+    font-size: 22px; color: #333;
+    padding: 20px 10px 10px;
+}
+#main .service ul h3:hover {
+    color:#002a62
+}
+#main .service ul p {
+    font-size: 14px; color: #777;
+    padding: 0 10px;
+    word-break: keep-all; /* 한글단어잘림 현상해결 */
+}
+
+#main .product { padding: 60px 0; background-color: #f2f2f2;}
+#main .product ul h3 {
+    font-size: 16px; color: #333;
+    padding: 20px 10px 0;
+}
+#main .product ul h3:hover {
+    color:#002a62
+}
+#main .product ul p {
+    font-size: 13px; color: #888;
+    padding: 5px 10px 20px;
+    word-break: keep-all; 
+}
+
+/* other 메뉴 */
+#main .other {padding: 60px 0;}
+#main .other .inner {overflow: hidden;}
+#main .other .inner > div {
+    float: left; width:32.333%
+}
+
+#main .other .inner > div.qna {
+    margin: 0 1.5%
+}
+#main .other .notice h2 { 
+    font-size: 20px; color: #333; 
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+#main .other .notice table {font-size: 12px; color: #777; }
+
+#main .other .notice col:first-child { width: auto;} /* 제일넓은칸은 자동, 나머지 칸들은 px정하기 */
+#main .other .notice col:last-child { width: 80px;} /* col은 가운데정렬 속성 적용못함 */
+#main .other .notice td:first-child {
+    white-space: nowrap; overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 5px;
+}
+/* #main .other .notice td a::before {content: 'ㆍ'; padding-right: 3px;} */
+#main .other .notice td a { 
+    background-image: url(../images/icon-top.png); 
+    background-repeat: no-repeat;
+    background-size: 5px auto;
+    padding-left: 10px;
+    background-position: left center;
+}
+#main .other .notice td a:hover {color:#333;}
+#main .other .notice td:last-child {text-align: center;}
+#main .other .notice td {
+    padding: 2px 0px;
+}
+#main .other .notice {position: relative;}
+#main .other .notice .noticemore {
+    position: absolute; top: 10px; right: 10px;
+    font-size: 12px; color: #999;
+}
+#main .other .notice .noticemore:hover { color: #cc1b38;}
+
+/* qna 메뉴 */
+#main .other .qna .myqna {
+    float: left; width: 48%; 
+    margin-right: 4%; 
+    background-color: #444c58;
+}
+#main .other .qna .roadmap {
+    float: left; width: 48%; 
+    background-color: #7a838e;
+}
+#main .other .qna a {
+    display: block; 
+    text-align: center; 
+    color: #fff;
+    padding: 26px 12px 12px;
+    transition: all 0.3s;
+}
+#main .other .qna a:hover{background-color: #002a62;}
+#main .other .qna h3 {font-size: 15px; margin: 10px 0; font-weight: normal;}
+#main .other .qna p {font-size: 12px;}
+
+/* cscenter 메뉴 */
+#main .other .cscenter {border: 1px solid #ccc; padding: 20px 20px; text-align: center;}
+#main .other .cscenter h3 { font-size: 16px; color: #333;}
+#main .other .cscenter a { font-size: 24px; color: #cc1b38; display: block; padding: 10px 0;}
+#main .other .cscenter p { font-size: 12px; color: #999;}
+#main .other .cscenter p span {display: block;}
+
+/* footer*/
+#footer {background-color: #707274; padding: 35px 0 50px;}
+#footer .bmenu {font-size: 12px; color: #eee;}
+#footer .bmenu a {padding: 0 15px; position: relative; transition: all 0.3s;}
+#footer .bmenu a:first-child {padding-left: 0;}
+#footer .bmenu a::after {
+    content: '';
+    width: 1px; height: 10px; background-color: #b2b2b2;
+    position: absolute; top: 4px; right: -3px;
+}
+#footer .bmenu a:last-child::after { display: none;}
+#footer .bmenu a:hover { color: #fff;}
+
+#footer .info {font-size: 13px; color: #bbb; padding-top: 10px;}
+
+#footer .inner { position: relative;}
+#footer .sns {
+    position: absolute; top:0; right: 0;
+}
+#footer .sns a {padding: 0 3px}
+
+/* gotop */
+.gotop { position: fixed; right: 30px; bottom: 20px;}
